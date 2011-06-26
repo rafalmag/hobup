@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="rafal-duzy" name="hobup.core.data.CategoryTest" tests="1" failures="0" timestamp="26 Jun 2011 13:19:57 GMT" time="0.039" errors="0">
+  <testcase name="getName" time="0.019" classname="hobup.core.data.CategoryTest"/>
+</testsuite>

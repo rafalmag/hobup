@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Access
+Bundle-SymbolicName: hobup.core.db.access
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Rafal Magda
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: hobup.core.libs;bundle-version="1.0.0"

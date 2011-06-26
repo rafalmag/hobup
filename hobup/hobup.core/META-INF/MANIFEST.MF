@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Hobup Core
+Bundle-SymbolicName: hobup.core
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Rafal Magda
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

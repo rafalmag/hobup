@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="39" started-at="2011-06-26T15:19:57Z" finished-at="2011-06-26T15:19:57Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="39" started-at="2011-06-26T15:19:57Z" finished-at="2011-06-26T15:19:57Z">
+      <class name="hobup.core.data.CategoryTest">
+        <test-method status="PASS" signature="getName()" name="getName" duration-ms="19" started-at="2011-06-26T15:19:57Z" finished-at="2011-06-26T15:19:57Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>
