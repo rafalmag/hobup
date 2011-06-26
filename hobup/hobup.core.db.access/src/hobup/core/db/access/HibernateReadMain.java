@@ -2,18 +2,18 @@ package hobup.core.db.access;
 
 import hobup.core.db.access.data.MsAccessCategory;
 import hobup.core.db.access.data.MsAccessData;
-import hobup.core.db.access.data.MsAccessMainCategory;
 import hobup.core.db.access.data.MsAccessSubCategory;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableMap;
 
 public class HibernateReadMain {
 
@@ -32,33 +32,34 @@ public class HibernateReadMain {
 	}
 
 	private static void updateDesc(Session session) {
-		MsAccessMainCategory msAccessMainCategory = (MsAccessMainCategory) session
-				.load(MsAccessMainCategory.class, 1);
+		MsAccessCategory msAccessMainCategory = (MsAccessCategory) session
+				.load("MainCategory", 1);
 		msAccessMainCategory.setDescription(new Date().toString());
-		session.saveOrUpdate(msAccessMainCategory);
+		session.saveOrUpdate("MainCategory", msAccessMainCategory);
 	}
 
 	private static void readAllTables(Session session) {
-		ImmutableSet<Class<? extends MsAccessData>> tableNames = new ImmutableSet.Builder<Class<? extends MsAccessData>>()
-				.add(MsAccessMainCategory.class)
-				.add(MsAccessCategory.class)
-				.add(MsAccessSubCategory.class)
+		ImmutableMap<String, Class<? extends MsAccessData>> entityMap = new ImmutableMap.Builder<String, Class<? extends MsAccessData>>()
+				.put("MainCategory", MsAccessCategory.class)
+				.put("Category", MsAccessCategory.class)
+				.put("SubCategory", MsAccessSubCategory.class)
 				.build();
 
-		for (Class<? extends MsAccessData> tableName : tableNames) {
+		for (Entry<String, Class<? extends MsAccessData>> entity : entityMap
+				.entrySet()) {
 			for (MsAccessData data : getDataFromTable(
 					session,
-					tableName)) {
+					entity.getKey())) {
 				System.out.println(data.toString());
 			}
 		}
 	}
 
-	private static <T> List<T> getDataFromTable(Session session,
-			Class<T> dataTypeClass) {
+	private static <T extends MsAccessData> List<T> getDataFromTable(
+			Session session, String entity) {
 		// Criteria Query Example
 		// session.crea
-		Criteria crit = session.createCriteria(dataTypeClass);
+		Criteria crit = session.createCriteria(entity);
 		@SuppressWarnings("unchecked")
 		List<T> list = crit.list();
 		return list;

@@ -3,8 +3,9 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="hobup.core.db.access.data.MsAccessMainCategory"
-		table="KategorieGlowne">
+	<class name="hobup.core.db.access.data.MsAccessCategory"
+		table="KategorieGlowne"
+		entity-name="MainCategory">
 		<id name="id" type="int" column="Identyfikator">
 			<generator class="assigned" />
 		</id>
@@ -14,8 +15,9 @@
 		<property name="description" column="Uwagi" />
 	</class>
 
-	<class name="hobup.core.db.access.data.MsAccessCategory"
-		table="Kategorie">
+	<class name="hobup.core.db.access.data.MsAccessCategory" 
+	table="Kategorie"
+	entity-name="Category">
 		<id name="id" type="int" column="Identyfikator">
 			<generator class="assigned" />
 		</id>
@@ -24,9 +26,10 @@
 		<property name="priority" type="int" column="Priorytet" />
 		<property name="description" column="Uwagi" />
 	</class>
-	
-		<class name="hobup.core.db.access.data.MsAccessSubCategory"
-		table="Podkategorie">
+
+	<class name="hobup.core.db.access.data.MsAccessSubCategory"
+		table="Podkategorie"
+		entity-name="SubCategory">
 		<id name="id" type="int" column="Identyfikator">
 			<generator class="assigned" />
 		</id>
